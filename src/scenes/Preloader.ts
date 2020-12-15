@@ -25,6 +25,8 @@ export default class Preloader extends Phaser.Scene
 
             this.load.image(TextureKeys.Window1, 'house/object_window1.png')
             this.load.image(TextureKeys.Window2, 'house/object_window2.png')
+            this.load.image(TextureKeys.Bookcase1, 'house/object_bookcase1.png')
+            this.load.image(TextureKeys.Bookcase2, 'house/object_bookcase2.png')
 
             // load as an atlas
             this.load.atlas(
