@@ -3,6 +3,7 @@ import Phaser from 'phaser'
 import TextureKeys from '../consts/TextureKeys'
 import SceneKeys from '../consts/SceneKeys'
 import AnimationKeys from '../consts/AnimationKeys'
+import RocketMouse from '~/game/RocketMouse'
 
 export default class Preloader extends Phaser.Scene
 {
@@ -38,6 +39,7 @@ export default class Preloader extends Phaser.Scene
 
         create()
         {
+            // create the run animation
             this.anims.create({
                 key: AnimationKeys.RocketMouseRun, // name of this animation
                 // helper to generate frames
@@ -50,6 +52,37 @@ export default class Preloader extends Phaser.Scene
                 }),
                 frameRate: 10,
                 repeat: -1 // -1 to loop forever
+            })
+
+            // fall animation
+            this.anims.create({
+                key: AnimationKeys.RocketMouseFall,
+                frames: [{
+                    key: TextureKeys.RocketMouse,
+                    frame: 'rocketmouse_fall01.png'
+                }]
+            })
+
+            // fly animation
+            this.anims.create({
+                key: AnimationKeys.RocketMouseFly,
+                frames: [{
+                    key: TextureKeys.RocketMouse,
+                    frame: 'rocketmouse_fly01.png'
+                }]
+            })
+
+            // create the flames animation
+            this.anims.create({
+                key: AnimationKeys.RocketFlamesOn,
+                frames: this.anims.generateFrameNames(TextureKeys.RocketMouse,{
+                    start: 1,
+                    end: 2,
+                    prefix: 'flame',
+                    suffix: '.png'
+                }),
+                frameRate: 10,
+                repeat: -1
             })
 
             // now start the game scene
