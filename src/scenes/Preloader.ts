@@ -28,6 +28,8 @@ export default class Preloader extends Phaser.Scene
             this.load.image(TextureKeys.Window2, 'house/object_window2.png')
             this.load.image(TextureKeys.Bookcase1, 'house/object_bookcase1.png')
             this.load.image(TextureKeys.Bookcase2, 'house/object_bookcase2.png')
+            this.load.image(TextureKeys.LaserEnd, 'house/object_laser_end.png')
+            this.load.image(TextureKeys.LaserMiddle, 'house/object_laser.png')
 
             // load as an atlas
             this.load.atlas(
@@ -83,6 +85,20 @@ export default class Preloader extends Phaser.Scene
                 }),
                 frameRate: 10,
                 repeat: -1
+            })
+
+            // create the dead animation
+            this.anims.create({
+                key: AnimationKeys.RocketMouseDead,
+                frames: this.anims.generateFrameNames(TextureKeys.RocketMouse,
+                    {
+                        start: 1,
+                        end: 2,
+                        prefix: 'rocketmouse_dead',
+                        zeroPad: 2,
+                        suffix: '.png'
+                    }),
+                    frameRate: 10
             })
 
             // now start the game scene
