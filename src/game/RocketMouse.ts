@@ -9,6 +9,7 @@ import Phaser from 'phaser'
 
 import TextureKeys from '../consts/TextureKeys'
 import AnimationKeys from '../consts/AnimationKeys'
+import SceneKeys from '~/consts/SceneKeys'
 
 export default class RocketMouse extends Phaser.GameObjects.Container
 {
@@ -134,6 +135,8 @@ export default class RocketMouse extends Phaser.GameObjects.Container
             {
                 // make a complete stop
                 body.setVelocity(0, 0)
+
+                this.scene.scene.run(SceneKeys.GameOver)
                 break
             }
         }
