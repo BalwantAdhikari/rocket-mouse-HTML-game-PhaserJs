@@ -8,7 +8,8 @@ enum TextureKeys
     Bookcase1 = 'bookcase-1',
     Bookcase2 = 'bookcase-2',
     LaserEnd = 'laser-end',
-    LaserMiddle = 'laser-middle'
+    LaserMiddle = 'laser-middle',
+    Coin = "coin"
 }
 
 export default TextureKeys
